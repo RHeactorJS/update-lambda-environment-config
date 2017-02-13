@@ -7,14 +7,16 @@
     "update-lambda-environment-config": "./dist/update-lambda-environment-config.js"
   },
   "scripts": {
-    "test": "make dist && mocha --compilers js:babel-register --reporter=dot --timeout=1350 test/\\*.js"
+    "test": "make dist && mocha --compilers js:babel-register --reporter=dot --timeout=1350 test/\\*.js",
+    "lint": "standard",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "publishConfig": {
     "access": "public"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ResourcefulHumans/update-lambda-environment-config.git"
+    "url": "https://github.com/ResourcefulHumans/update-lambda-environment-config.git"
   },
   "keywords": [
     "simple",

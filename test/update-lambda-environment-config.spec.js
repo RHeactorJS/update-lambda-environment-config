@@ -1,9 +1,7 @@
-'use strict'
-
 /* global describe, it, process */
 
-const expect = require('chai').expect
-const childProcess = require('child_process')
+import {expect} from 'chai'
+import childProcess from 'child_process'
 
 describe('update-lambda-environment-config', () => {
   it('should abort if no JSON is passed', done => {
@@ -37,34 +35,14 @@ describe('update-lambda-environment-config', () => {
       done()
     })
   })
-  it('should update the environment variables', done => {
-    const child = childProcess.spawn('./dist/update-lambda-environment-config.js', {
+  it('should update the environment variables', () => {
+    const result = childProcess.execSync('./dist/update-lambda-environment-config.js', {
       env: {
         DEPLOY_TIME: '1234567890',
         VERSION: '1.2.3'
-      }
+      },
+      input: '{\n  "Environment": {\n    "Variables": {\n      "FOO": "BAR"\n    }\n  }\n}'
     })
-    let result = ''
-    let errData = ''
-    child.stderr.on('data', data => {
-      errData += data
-    })
-    child.stdout.on('data', data => {
-      result += data
-    })
-    child.stdin.write('{')
-    child.stdin.write('  "Environment": {')
-    child.stdin.write('    "Variables": {')
-    child.stdin.write('      "FOO": "BAR"')
-    child.stdin.write('    }')
-    child.stdin.write('  }')
-    child.stdin.write('}')
-    child.stdin.end()
-    child.on('close', code => {
-      expect(errData, 'No error messsage should have been produced').to.equal('')
-      expect(code, 'Exit code should be 0').to.equal(0)
-      expect(result, 'It should create a string to use for updating the vars').to.equal('FOO="BAR",VERSION="1.2.3",DEPLOY_TIME="1234567890"')
-      done()
-    })
+    expect(result.toString(), 'It should create a string to use for updating the vars').to.equal('FOO="BAR",VERSION="1.2.3",DEPLOY_TIME="1234567890"')
   })
 })

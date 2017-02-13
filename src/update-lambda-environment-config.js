@@ -1,4 +1,4 @@
-#!/bin/env node
+#!/usr/bin/env node
 
 /* global process */
 
@@ -27,7 +27,7 @@ process.stdin.on('end', () => {
     DEPLOY_TIME: process.env.DEPLOY_TIME || Date.now()
   })
   let vars = []
-  for(let k in env) {
+  for (let k in env) {
     vars.push(`${k}="${env[k]}"`)
   }
   process.stdout.write(vars.join(','))
