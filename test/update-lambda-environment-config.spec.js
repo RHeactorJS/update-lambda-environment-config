@@ -5,7 +5,7 @@ import childProcess from 'child_process'
 
 describe('update-lambda-environment-config', () => {
   it('should abort if no JSON is passed', done => {
-    const child = childProcess.spawn('./dist/update-lambda-environment-config.js')
+    const child = childProcess.spawn('./dist/update-lambda-environment-config.js', {PATH: process.env.PATH})
     let errData = ''
     child.stdin.write('')
     child.stderr.on('data', data => {
@@ -19,7 +19,7 @@ describe('update-lambda-environment-config', () => {
     })
   })
   it('should abort if no Environment is passed', done => {
-    const child = childProcess.spawn('./dist/update-lambda-environment-config.js')
+    const child = childProcess.spawn('./dist/update-lambda-environment-config.js', {PATH: process.env.PATH})
     let errData = ''
     child.stderr.on('data', data => {
       errData += data
@@ -38,6 +38,7 @@ describe('update-lambda-environment-config', () => {
   it('should update the environment variables', () => {
     const result = childProcess.execSync('./dist/update-lambda-environment-config.js', {
       env: {
+        PATH: process.env.PATH,
         DEPLOY_TIME: '1234567890',
         VERSION: '1.2.3'
       },
