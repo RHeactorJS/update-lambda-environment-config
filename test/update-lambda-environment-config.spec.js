@@ -40,10 +40,11 @@ describe('update-lambda-environment-config', () => {
       env: {
         PATH: process.env.PATH,
         DEPLOY_TIME: '1234567890',
-        VERSION: '1.2.3'
+        VERSION: '1.2.3',
+        NODE_ENV: 'production'
       },
       input: '{\n  "Environment": {\n    "Variables": {\n      "FOO": "BAR"\n    }\n  }\n}'
     })
-    expect(result.toString(), 'It should create a string to use for updating the vars').to.equal('FOO="BAR",VERSION="1.2.3",DEPLOY_TIME="1234567890"')
+    expect(result.toString(), 'It should create a string to use for updating the vars').to.equal('FOO="BAR",VERSION="1.2.3",DEPLOY_TIME="1234567890",NODE_ENV="production"')
   })
 })

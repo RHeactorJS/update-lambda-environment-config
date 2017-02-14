@@ -6,9 +6,7 @@
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
 [![semantic-release](https://img.shields.io/badge/semver-semantic%20release-e10079.svg)](https://github.com/semantic-release/semantic-release)
 
-A helper script to update lambda environment variables with the current version and deploy time.
-
-This script takes the output of `aws lambda get-function-configuration` and returns an updated environment configuratio with added version and deployTime from environment.
+This script takes the output of `aws lambda get-function-configuration` and returns an updated environment configuration string with added version, deployTime and node environment from environment variables.
 
 ## Example
 
@@ -28,13 +26,14 @@ If called like this:
 
     $ VERSION=1.2.3
     $ DEPLOY_TIME=1234567890
+    $ NODE_ENV=production
     $ VARS=`aws lambda get-function-configuration \
     --function-name myLambdaFunction \
     | ./node_modules/.bin/update-lambda-environment-config`
     
 it sets `$VARS` to this
     
-    FOO="BAR",VERSION="1.2.3",DEPLOY_TIME="1234567890"
+    FOO="BAR",VERSION="1.2.3",DEPLOY_TIME="1234567890",NODE_ENV="production"
 
 which can be used for updating it via `aws lambda update-function-configuration`:
 

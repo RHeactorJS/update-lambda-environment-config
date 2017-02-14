@@ -24,9 +24,10 @@ process.stdin.on('end', () => {
   }
   const env = Object.assign(config.Environment.Variables, {
     VERSION: process.env.VERSION,
-    DEPLOY_TIME: process.env.DEPLOY_TIME || Date.now()
+    DEPLOY_TIME: process.env.DEPLOY_TIME || Date.now(),
+    NODE_ENV: process.env.NODE_ENV
   })
-  let vars = []
+  const vars = []
   for (let k in env) {
     vars.push(`${k}="${env[k]}"`)
   }
