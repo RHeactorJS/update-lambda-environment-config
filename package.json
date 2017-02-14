@@ -9,6 +9,8 @@
   "scripts": {
     "test": "make dist && mocha --compilers js:babel-register --reporter=dot --timeout=1350 test/\\*.js",
     "lint": "standard",
+    "precommit": "npm run lint && npm test",
+    "commitmsg": "validate-commit-msg",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "publishConfig": {
