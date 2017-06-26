@@ -1,5 +1,5 @@
 {
-  "name": "@resourcefulhumans/update-lambda-environment-config",
+  "name": "@rheactorjs/update-lambda-environment-config",
   "version": "0.0.0-development",
   "description": "A helper script to update lambda environment variables with the current version and deploy time",
   "main": "dist/update-lambda-environment-config.js",
@@ -18,7 +18,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/ResourcefulHumans/update-lambda-environment-config.git"
+    "url": "https://github.com/RHeactorJS/update-lambda-environment-config.git"
   },
   "keywords": [
     "simple",
@@ -28,12 +28,14 @@
   "author": "Resourceful Humans GmbH <info@resourceful-humans.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ResourcefulHumans/update-lambda-environment-config/issues"
+    "url": "https://github.com/RHeactorJS/update-lambda-environment-config/issues"
   },
-  "homepage": "https://github.com/ResourcefulHumans/update-lambda-environment-config#readme",
+  "homepage": "https://github.com/RHeactorJS/update-lambda-environment-config#readme",
   "devDependencies": {
-    "babel-cli": "^6.22.2",
-    "babel-preset-es2015": "^6.22.0",
+    "babel-cli": "^6.24.1",
+    "babel-eslint": "^7.2.2",
+    "babel-preset-env": "^1.4.0",
+    "babel-preset-es2015": "^6.24.1",
     "chai": "^3.5.0",
     "husky": "<2.0.0",
     "mocha": "^3.2.0",
@@ -46,5 +48,8 @@
     "src",
     "test",
     "README.md"
-  ]
+  ],
+  "engines": {
+    "node": ">=6.10.2"
+  }
 }
