@@ -1,5 +1,7 @@
 # update-lambda-environment-config
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/RHeactorJS/update-lambda-environment-config.svg)](https://greenkeeper.io/)
+
 [![npm version](https://img.shields.io/npm/v/@rheactorjs/update-lambda-environment-config.svg)](https://www.npmjs.com/package/@rheactorjs/update-lambda-environment-config)
 [![Build Status](https://travis-ci.org/RHeactorJS/update-lambda-environment-config.svg?branch=master)](https://travis-ci.org/RHeactorJS/update-lambda-environment-config)
 [![monitored by greenkeeper.io](https://img.shields.io/badge/greenkeeper.io-monitored-brightgreen.svg)](http://greenkeeper.io/) 
