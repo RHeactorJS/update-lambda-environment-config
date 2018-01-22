@@ -7,7 +7,8 @@
     "update-lambda-environment-config": "./dist/update-lambda-environment-config.js"
   },
   "scripts": {
-    "test": "make dist && mocha --compilers js:babel-register --reporter=dot --timeout=1350 test/\\*.js",
+    "pretest": "make -B dist",
+    "test": "mocha --require babel-core/register --reporter=dot --timeout=1350 test/\\*.js",
     "lint": "standard",
     "precommit": "npm run lint && npm test",
     "commitmsg": "validate-commit-msg",
@@ -32,16 +33,16 @@
   },
   "homepage": "https://github.com/RHeactorJS/update-lambda-environment-config#readme",
   "devDependencies": {
-    "babel-cli": "^6.24.1",
-    "babel-eslint": "^8.0.0",
-    "babel-preset-env": "^1.4.0",
+    "babel-cli": "^6.26.0",
+    "babel-eslint": "^8.2.1",
+    "babel-preset-env": "^1.6.1",
     "babel-preset-es2015": "^6.24.1",
-    "chai": "^4.1.1",
-    "husky": "0.15.0-rc.2",
-    "mocha": "^4.0.0",
-    "semantic-release": "^12.2.2",
+    "chai": "^4.1.2",
+    "husky": "^0.14.3",
+    "mocha": "^5.0.0",
+    "semantic-release": "^12.2.4",
     "standard": "^10.0.3",
-    "validate-commit-msg": "^2.11.1"
+    "validate-commit-msg": "^2.14.0"
   },
   "files": [
     "dist",
